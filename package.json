@@ -1,0 +1,40 @@
+{
+  "name": "mcp-lab-workshop",
+  "version": "1.0.0",
+  "description": "MCP Lab Workshop - Learn MCP Servers with Cloudflare Workers",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Build step - no build needed for Workers'",
+    "deploy": "wrangler deploy",
+    "deploy:separate": "bash deploy.sh"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "workspaces": [
+    "demo-app",
+    "mcp-server"
+  ],
+  "cloudflare": {
+    "workers": [
+      {
+        "name": "mcp-demo-app",
+        "main": "demo-app/index.js",
+        "directory": "demo-app"
+      },
+      {
+        "name": "mcp-server",
+        "main": "mcp-server/index.js",
+        "directory": "mcp-server"
+      }
+    ],
+    "kv_namespaces": {
+      "DEMO_STATE": {
+        "binding": "DEMO_STATE"
+      }
+    }
+  },
+  "keywords": ["mcp", "model-context-protocol", "cloudflare", "workers", "workshop"],
+  "author": "Cloudflare",
+  "license": "MIT"
+}

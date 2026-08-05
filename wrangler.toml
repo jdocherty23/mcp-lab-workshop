@@ -1,0 +1,7 @@
+name = "mcp-lab-workshop"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "DEMO_STATE"
+id = "0a8acf00d52741c0b261d446801c943d"
